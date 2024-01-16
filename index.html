@@ -14,6 +14,14 @@
     const urlParams = new URLSearchParams(window.location.search);
     const send_message_id = urlParams.get('paramname');
   </script> -->
+
+<script>
+  function getSendMessageId() {
+    // Получаем send_message_id из URL
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('paramname');
+  }
+</script>
   
   <!--  Инициализация AkUnsub класса -->
   <script>
@@ -26,10 +34,10 @@
 <body>
 
   <!-- Кнопка для подтверждения отписки -->
-  <button onclick="akUnsub.confirmUnsub('{send_message_id}', ['category1', 'category2'])">Подтвердить отписку</button>
+  <button onclick="akUnsub.confirmUnsub(getSendMessageId(), ['category1', 'category2'])">Подтвердить отписку</button>
 
   <!-- Кнопка для отмены отписки -->
-  <button onclick="akUnsub.cancelUnsub('{send_message_id}', ['category1', 'category2'])">Отменить отписку</button>
+  <button onclick="akUnsub.cancelUnsub(getSendMessageId(), ['category1', 'category2'])">Отменить отписку</button>
 
 </body>
 </html>
