@@ -7,10 +7,16 @@
   
   <!-- Подключение Altcraft SDK -->
 
-    <script src="https://pxl.polina-zakaryan.dev.altkraft.com/ak_list_unsubscribe.js?id=MXw2OA=="></script>
-    
+  <script src="https://pxl.polina-zakaryan.dev.altkraft.com/ak_list_unsubscribe.js?id=MXw2OA=="></script>
+
+  <!-- Получаем send_message_id из URL -->
   <script>
-    // Инициализация AkUnsub класса
+    const urlParams = new URLSearchParams(window.location.search);
+    const send_message_id = urlParams.get('paramname');
+  </script>
+
+  <!--  Инициализация AkUnsub класса -->
+  <script>
     const akUnsub = new AkUnsub({
       rtoken: '2p3aRRWk9XuL-526b2f409ab3e422',
       pxl_domain: 'pxl.polina-zakaryan.dev.altkraft.com',
@@ -20,10 +26,10 @@
 <body>
 
   <!-- Кнопка для подтверждения отписки -->
-  <button onclick="akUnsub.confirmUnsub('message_id', ['category1', 'category2'])">Подтвердить отписку</button>
+  <button onclick="akUnsub.confirmUnsub('send_message_id', ['category1', 'category2'])">Подтвердить отписку</button>
 
   <!-- Кнопка для отмены отписки -->
-  <button onclick="akUnsub.cancelUnsub('message_id', ['category1', 'category2'])">Отменить отписку</button>
+  <button onclick="akUnsub.cancelUnsub('send_message_id', ['category1', 'category2'])">Отменить отписку</button>
 
 </body>
 </html>
